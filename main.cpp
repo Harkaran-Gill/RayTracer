@@ -1,3 +1,5 @@
+#include <chrono>
+
 #include "rt.h"
 
 #include "camera.h"
@@ -8,6 +10,7 @@
 
 
 int main() {
+    auto time_start = std::chrono::system_clock::now();
     //set the world
     hittable_list world;
 
@@ -58,9 +61,9 @@ int main() {
     camera cam;
 
     cam.aspect_ratio    = 16.0 / 9.0;
-    cam.image_width     = 640;
+    cam.image_width     = 10;
 
-    cam.samples_per_pixel = 100;
+    cam.samples_per_pixel = 200;
     cam.max_depth         = 50;
 
     cam.vfov     = 20;
@@ -68,8 +71,13 @@ int main() {
     cam.lookat   = point3(0 ,0 ,0);
     cam.vup      = vec3(0, 1, 0);
 
-    cam.defocus_angle = 0.6;
+    cam.defocus_angle = 0;
     cam.focus_dist    = 10.0;
 
     cam.render(world);
+    auto time_end = std::chrono::system_clock::now();
+    auto time = time_end - time_start;
+
+    std::clog << "Time taken to render: " << std::chrono::duration_cast<std::chrono::milliseconds>(time) << std::endl;
+
 }

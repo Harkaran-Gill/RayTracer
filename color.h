@@ -34,8 +34,8 @@ inline void write_color(std::ostream& out, const color& pixel_color) {
     int gbyte = int(256 * intensity.clamp(g));
     int bbyte = int(256 * intensity.clamp(b));
 
-    // write oue pixels
-    out << rbyte << ' ' << gbyte << ' ' << bbyte << '\n';
+    // write out pixels
+    out << rbyte << ' ' << gbyte << ' ' << bbyte << '\n' << std::flush;
 }
 
 #endif //COLOR_H

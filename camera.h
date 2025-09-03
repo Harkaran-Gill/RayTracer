@@ -41,7 +41,7 @@ public:
                 write_color(std::cout, pixel_samples_scale * pixel_color);
             }
         }
-        std::clog << "\rDone!                           " << image_height << '\n';
+        std::clog << "\rDone!... Image Height in pixels is:  " << image_height << '\n';
     }
 
 private:
