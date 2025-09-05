@@ -2,13 +2,8 @@
 
 A simple, CPU-based ray tracer built in C++ by following Peter Shirley's "Ray Tracing in One Weekend" book series. This project serves as a personal exploration into the fundamentals of computer graphics and rendering algorithms.
 
-<!-- =================================================================== -->
-<!--                  ADD YOUR BEST RENDER IMAGE HERE                  -->
-<!-- =================================================================== -->
-<!-- First, add a great-looking PNG image to your repository. Then,     -->
-<!-- uncomment the line below and replace the placeholder.              -->
-<!-- =================================================================== -->
-<!-- ![My Ray Tracer Render](images/final_render.png) -->
+![alt text](images/final_render.png)
+[Source](images/final_render.png) 
 
 ## About This Project
 
@@ -21,12 +16,11 @@ This program generates photorealistic images by simulating the path of light ray
 - [x] Basic object rendering (spheres)
 - [x] Surface normals and shading
 - [x] Hittable objects and lists
-- [x] **Anti-aliasing** using multisampling
+- [x] Anti-aliasing using multisampling
 - [x] Diffuse (Lambertian) materials
 - [x] Metal materials with reflection
 - [x] Dielectric materials with refraction (glass, water)
-- [ ] Positionable camera with depth of field
-- [ ] Bounding Volume Hierarchy (BVH) for performance optimization
+- [x] Positionable camera with depth of field
 
 ## Getting Started
 
@@ -37,9 +31,6 @@ To build and run this project, you will need:
 - [CMake](https://cmake.org/download/) (version 3.10 or higher)
 - [Git](https://git-scm.com/downloads)
 - Your preferred Code-Editor
-
-For [feature/sdl2-realtime-viewer](https://github.com/Harkaran-Gill/RayTracer/tree/feature/sdl2-realtime-viewer), you will additionally need the following:  
-- [SDL2](https://www.libsdl.org/) for real-time window display
 
 
 ### Building the Project
@@ -88,3 +79,7 @@ to a file using '>' operator. Run the following commands on the terminal.
 #### For Visual Studio 
 Run this in the same directory as your .exe file.  
 .\RayTracing.exe > image.ppm
+
+### Alternatively
+Use the [SDL2 version](https://github.com/Harkaran-Gill/RayTracer/tree/feature/sdl2-realtime-viewer)
+of the Ray Tracer to view the render in Realtime
