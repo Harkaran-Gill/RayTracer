@@ -83,3 +83,7 @@ Run this in the same directory as your .exe file.
 ### Alternatively
 Use the [SDL2 version](https://github.com/Harkaran-Gill/RayTracer/tree/feature/sdl2-realtime-viewer)
 of the Ray Tracer to view the render in Realtime
+
+### Citations
+[_Ray Tracing in One Weekend_](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
+
