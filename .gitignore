@@ -9,6 +9,8 @@ cmake-build-release-visual-studio/
 out/
 CMakeLists.txt
 CMakeSettings.json
+CppProperties.json
+build/
 
 #rendered test images
 image.ppm
