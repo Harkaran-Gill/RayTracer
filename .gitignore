@@ -7,6 +7,10 @@ cmake-build-release-visual-studio/
 # Visual Studio Specifics
 .vs/
 out/
+CMakeLists.txt
+CMakeSettings.json
+CppProperties.json
+build/
 
 #rendered test images
 image.ppm
