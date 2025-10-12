@@ -45,19 +45,11 @@ Follow these steps to clone and build the ray tracer from source:
 
 
 2. Create a build directory  
-      mkdir build  
-      cd build
+   cmake -B build
 
-
-3. Configure the project with CMake
-   On Windows, you might need to specify the generator:  
-   cmake .. -G "Visual Studio 17 2022"  
-   cmake ..
-
-
-4. Build the project
+3. Build the project
    This will create an executable in the build directory  
-   cmake --build . --config Release
+   cmake --build build --config Release
 
 
 #### For CLion:
@@ -77,8 +69,7 @@ to a file using '>' operator. Run the following commands on the terminal.
 .\cmake-build-debug\RayTracing.exe > image.ppm
 
 #### For Visual Studio 
-Run this in the same directory as your .exe file.  
-.\RayTracing.exe > image.ppm
+build\Release\inOneWeekend.exe > image.ppm
 
 ### Alternatively
 Use the [SDL2 version](https://github.com/Harkaran-Gill/RayTracer/tree/feature/sdl2-realtime-viewer)
