@@ -61,10 +61,9 @@ int main() {
     camera cam;
 
     cam.aspect_ratio    = 16.0 / 9.0;
-    cam.image_width     = 1920;
-
-    cam.samples_per_pixel = 200;
-    cam.max_depth         = 50;
+    cam.image_width     = 800;
+    cam.samples_per_pixel = 50;
+    cam.max_depth         = 10;
 
     cam.vfov     = 20;
     cam.lookfrom = point3(13, 2, 3);
@@ -78,6 +77,6 @@ int main() {
     auto time_end = std::chrono::system_clock::now();
     auto time = time_end - time_start;
 
-    std::clog << "Time taken to render: " << std::chrono::duration_cast<std::chrono::milliseconds>(time) << std::endl;
-
+    std::clog << "Time taken to render: " << (float) std::chrono::duration_cast<std::chrono::milliseconds>(time).count()
+            / 1000.0f << std::endl;
 }

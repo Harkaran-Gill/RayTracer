@@ -26,22 +26,29 @@ public:
 
     void render(const hittable& world){
         initialize();
+        std::ofstream img("image.ppm");
+        if (!img.is_open()) {
+            std::cerr << "Error: could not open ../image.ppm\n";
+            return;
+        }
 
         //Render
         std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
+        img << "P3\n" << image_width << " " << image_height << "\n255\n";
 
         for (int j = 0; j < image_height; ++j) {
-            std::clog << "\rScanLines remaining: " << image_height - j << ' '<<std::flush;
+            std::cout << "\rScanLines remaining: " << image_height - j << "    "<<std::flush;
             for (int i = 0; i < image_width; ++i) {
                 color pixel_color = color (0, 0, 0);
                 for (int samples = 0; samples < samples_per_pixel; ++samples) {
                     ray r = get_ray(i, j);
                     pixel_color += ray_color(r, max_depth, world);
                 }
-                write_color(std::cout, pixel_samples_scale * pixel_color);
+                write_color(img, pixel_samples_scale * pixel_color);
             }
         }
         std::clog << "\rDone!... Image Height in pixels is:  " << image_height << '\n';
+        img.close();
     }
 
 private:
@@ -122,7 +129,7 @@ private:
     }
 
     // TODO: implement a non-square version to experiment with non-square pixels
-    vec3 sample_square() {
+    static vec3 sample_square() {
         // Returns the vector to a random point in the [-0.5, -0.5] - [0.5, 0.5] unit square
         return vec3(random_double() - 0.5, random_double() - 0.5, 0);
         // -0.5 because random_double() returns in range [0, 1]
