@@ -1,5 +1,6 @@
-#include "rt.h"
+#include <chrono>
 
+#include "rt.h"
 #include "camera.h"
 #include "hittable.h"
 #include "hittable_list.h"
@@ -7,7 +8,7 @@
 #include "sphere.h"
 
 
-static void scene1(hittable_list& world, camera& cam) {
+static void scene2(hittable_list& world, camera& cam) {
     auto ground_material = make_shared<lambertian>(color(0.5, 0.5, 0.5));
     world.add(make_shared<sphere>(point3(0, -1000, 0), 1000, ground_material));
 
@@ -66,7 +67,7 @@ static void scene1(hittable_list& world, camera& cam) {
     cam.focus_dist    = 10.0;
 }
 
-static void scene2(hittable_list& world, camera& cam) {
+static void scene1(hittable_list& world, camera& cam) {
     auto ground_material     = make_shared<lambertian>(color(0.5, 0.5, 0.5));
     auto material_dielectric = make_shared<dielectric>(1.5);
     auto material_bubble     = make_shared<dielectric>(1.0/1.5);
@@ -89,7 +90,7 @@ static void scene2(hittable_list& world, camera& cam) {
     cam.aspect_ratio    = 16.0 / 9.0;
     cam.image_width     = 1000;
 
-    cam.samples_per_pixel = 1000;
+    cam.samples_per_pixel = 100;
     cam.max_depth         = 20;
 
     cam.vfov     = 60;
@@ -124,6 +125,12 @@ int main() {
             std::cout << "Please enter a valid choice number" << std::endl;
         }
     }
+    auto time_start = std::chrono::system_clock::now();
     cam.render(world);
+    auto time_end = std::chrono::system_clock::now();
+    auto time = time_end - time_start;
+
+    std::clog << "Time taken to render: " << std::chrono::duration_cast<std::chrono::milliseconds>(time).count()/(1000.0f) << std::endl;
+
     return 0;
 }
